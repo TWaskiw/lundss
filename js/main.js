@@ -569,7 +569,7 @@ var sections = $(".kategori");
 $(window).on("scroll", function () {
   var cur_pos = $(this).scrollTop();
 
-  sections.each(function () {
+  sections.each(function (index) {
     var top = $(this).offset().top - 400,
       bottom = top + $(this).outerHeight();
     if (cur_pos >= top && cur_pos <= bottom) {
@@ -577,6 +577,24 @@ $(window).on("scroll", function () {
       nav.find("." + $(this)[0].id).addClass("active");
       navMobile.find(".boffer").removeClass("active");
       navMobile.find("." + $(this)[0].id).addClass("active");
+      if (
+        navMobile.find("." + $(this)[0].id).offset().left > 100 ||
+        navMobile.find("." + $(this)[0].id).offset().left < 0
+      ) {
+        navMobile.animate(
+          {
+            scrollLeft:
+              navMobile.scrollLeft() +
+              navMobile.find("." + $(this)[0].id).offset().left -
+              22.5,
+          },
+          0
+        );
+        console.log(
+          navMobile.find("." + $(this)[0].id).offset(),
+          navMobile.scrollLeft()
+        );
+      }
     }
   });
 });
