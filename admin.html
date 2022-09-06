@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<!--Alle har været med til at skrive HTML-->
+
+<head>
+  <meta charset="utf-8" />
+  <title>Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+
+<body onhashchange="pageChange()">
+  <main id="appRoot">
+    <section id="login" class="page">
+      <p class="login-message"></p>
+      <form class="login_form">
+        <input id="login-mail" type="email" placeholder="E-mail">
+        <input id="login-password" type="password" placeholder="Adgangskode">
+        <button type="button" id="btn-login">Login</button>
+      </form>
+    </section>
+
+    <!-- login page -->
+    <section id="products" class="page">
+      <div class="tabbar">
+        <input type="search" placeholder="Søg" onkeyup="search(this.value)">
+        <a href="https://www.waskiw.com/lundsbjerggaard/"><img src="./img/Logo.svg" alt="Lundsbjerggaard Logo" /></a>
+      </div>
+      <article id="content" class="grid-container"></article>
+      <div class="form_dashboard">
+        <form id="userForm">
+          <h2>Tilføj nyt produkt</h2>
+          <input type="text" id="name" placeholder="Navn på produkt" />
+          <textarea id="description" placeholder="Beskriv produktet (ca. 5 linjer).."></textarea>
+
+          <label for="cut">
+            <select id="cut">
+              <option value="" selected disabled>Udskæringer</option>
+              <option value="Bov">Bov</option>
+              <option value="Bryst">Bryst</option>
+              <option value="Hale">Hale</option>
+              <option value="Hals">Hals</option>
+              <option value="Højreb">Højreb</option>
+              <option value="Lår">Lår</option>
+              <option value="Mørbrad">Mørbrad</option>
+              <option value="Skank">Skank</option>
+              <option value="Tværreb">Tværreb</option>
+              <option value="Tykkam">Tykkam</option>
+              <option value="Tyksteg">Tyksteg</option>
+              <option value="Tyndsteg">Tyndsteg</option>
+            </select>
+          </label>
+
+          <label for="category">
+            <select id="category">
+              <option value="" selected disabled>Kategorier</option>
+              <option value="Bøffer/Steaks">Bøffer/Steaks</option>
+              <option value="Hakket oksekød">Hakket oksekød</option>
+              <option value="Hele stege">Hele stege</option>
+              <option value="Spegepølse">Spegepølse</option>
+              <option value="Vin">Vin</option>
+            </select>
+          </label>
+
+          <label for="lagerstatus">
+            <select id="lagerstatus">
+              <option value="" selected disabled>Lagerstatus</option>
+              <option value="På lager">På lager</option>
+              <option value="Få på lager">Få på lager</option>
+              <option value="Ikke på lager">Ikke på lager</option>
+            </select>
+          </label>
+
+          <input type="text" id="price" placeholder="Pris" />
+          <input type="text" id="weight" placeholder="Vægt (Vin = land)" />
+          <input type="number" id="kgprice" placeholder="Kilopris (Vin = årstal)" />
+          <p class="radio_forside_p">Skal produktet vises på forsiden under "Må vi anbefale?"? (maks. 3 produkter på
+            forside)
+          </p>
+          <div class="radio_forside">
+            <input type="radio" id="ja_forside" name="forslag" value="Ja">
+            <label for="ja_forside">Ja</label>
+
+            <input type="radio" id="nej_forside" name="forslag" value="Nej">
+            <label for="nej_forside">Nej</label>
+          </div>
+
+          <input type="file" id="img" accept="image/*" onchange="previewImg(this.files[0], 'imagePreview')" />
+          <img id="imagePreview" class="image-preview" alt="" />
+          <button type="button" name="button" id="btn-create">Tilføj produkt</button>
+        </form>
+
+        <form id="form-update">
+          <h2>Opdater produkt</h2>
+          <input type="text" id="nameUpdate" placeholder="Navn på produkt" />
+          <textarea id="descriptionUpdate" placeholder="Beskriv produktet (ca. 5 linjer).."></textarea>
+
+          <label for="cut-update">
+            <select id="cut-update">
+              <option value="" selected disabled>Udskæringer</option>
+              <option value="Bov">Bov</option>
+              <option value="Bryst">Bryst</option>
+              <option value="Hale">Hale</option>
+              <option value="Hals">Hals</option>
+              <option value="Højreb">Højreb</option>
+              <option value="Lår">Lår</option>
+              <option value="Mørbrad">Mørbrad</option>
+              <option value="Skank">Skank</option>
+              <option value="Tværreb">Tværreb</option>
+              <option value="Tykkam">Tykkam</option>
+              <option value="Tyksteg">Tyksteg</option>
+              <option value="Tyndsteg">Tyndsteg</option>
+            </select>
+          </label>
+
+          <label for="category-update">
+            <select id="category-update">
+              <option value="" selected disabled>Kategorier</option>
+              <option value="Bøffer/Steaks">Bøffer/Steaks</option>
+              <option value="Hakket oksekød">Hakket oksekød</option>
+              <option value="Hele stege">Hele stege</option>
+              <option value="Spegepølse">Spegepølse</option>
+              <option value="Vin">Vin</option>
+            </select>
+          </label>
+
+          <label for="lagerstatus-update">
+            <select id="lagerstatus-update">
+              <option value="" selected disabled>Lagerstatus</option>
+              <option value="På lager">På lager</option>
+              <option value="Få på lager">Få på lager</option>
+              <option value="Ikke på lager">Ikke på lager</option>
+            </select>
+          </label>
+
+          <input type="text" id="price-update" placeholder="Pris" />
+          <input type="text" id="weight-update" placeholder="Vægt (Vin = land)" />
+          <input type="number" id="kgprice-update" placeholder="Kilopris (Vin = årstal)" />
+          <p class="radio_forside_p">Skal produktet vises på forsiden under "Må vi anbefale?"? (maks. 3 produkter på
+            forside)
+          </p>
+          <div class="radio_forside">
+            <input type="radio" id="ja-forside-update" name="forslag-update" value="Ja">
+            <label for="ja-forside-update">Ja</label>
+
+            <input type="radio" id="nej-forside-update" name="forslag-update" value="Nej">
+            <label for="nej-forside-update">Nej</label>
+          </div>
+          <input type="file" id="imgU" accept="image/*" onchange="previewImg(this.files[0], 'imagePreviewUpdate')" />
+          <img id="imagePreviewUpdate" class="image-preview" alt="" />
+          <button type="button" name="button" id="btn-update">Opdater produkt</button>
+        </form>
+      </div>
+
+      <div class="admin_lang_linje"></div>
+      <section class="nyheder">
+        <h2>Nyhed til produktside</h2>
+        <div class="nyheder_guide">
+          <h3><span>&lt;h3&gt;</span>Er til titler<span>&lt;/h3&gt;</span></h3>
+          <p><span>&lt;p&gt;</span>Er til brødtekst<span>&lt;/p&gt;</span></p>
+          <p><span>&lt;i&gt;</span><i>Er til italic/skråskrift</i><span>&lt;/i&gt;</span></p>
+          <p><span>&lt;b&gt;</span><b>Er til tyk skrift</b><span>&lt;/b&gt;</span></p>
+          <p><span>&lt;u&gt;</span><u>Er til understreget skrift</u><span>&lt;/u&gt;</span></p>
+          <p><span>&lt;br&gt;</span>Bruges til at bryde<br>linjer (flere kan anvendes i streg)</p>
+        </div>
+        <div class="nyheder_text_output">
+          <textarea id="textContent" rows="20" cols="50"><h3>Nyhed</h3>
+<p>Vi har fået lækre bøffer på lager. Det er <b>vigtigt</b> at marinere dem!<br><br>
+Vi har også fået nye vin!</p></textarea>
+          <div id="showText"></div>
+        </div>
+        <div class="dashboard_buttons">
+          <button id="lav-nyhed" class="add-nyhed">Tilføj nyhed</button>
+        </div>
+        <h2 class="nuvaerende">Nuværende nyhed</h2>
+        <div id="lavet-nyheder" class="grid-container news_grid"></div>
+      </section>
+    </section>
+  </main>
+  <!-- main js file -->
+  <script src="js/admin.js" type="module"></script>
+  <script src="js/spa.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

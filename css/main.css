@@ -1,0 +1,1547 @@
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playball&display=swap");
+
+:root {
+  --green: rgb(38, 76, 89);
+  --green-opacity: rgba(38, 76, 89, 0.2);
+  --light-green: rgb(172, 198, 201);
+  --light-grey: #ffffff;
+  --text-color-light: #f1f1f1;
+  --text-color-dark: #333;
+  --white: #fff;
+  --font-family: "Montserrat", sans-serif;
+  --font-family-header: "Playball", sans-serif;
+  --text-color-out-of-stock: rgb(89, 38, 38);
+  --text-color-in-stock: rgb(172, 198, 201);
+  --orange: #f9b965;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  color: var(--text-color-dark);
+  font-family: var(--font-family);
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--light-grey);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Navigation ---------- */
+.tabbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  height: 80px;
+  transition: 0.5s;
+  z-index: 555;
+  background-color: white;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.product-nav {
+  width: 40%;
+  text-align: right;
+}
+
+.logo-nav {
+  max-width: 20%;
+}
+
+.right-nav {
+  width: 40%;
+  text-align: left;
+}
+
+.jersey-nav {
+  margin-left: 48px;
+}
+
+.tabbar a {
+  font-size: 16px;
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+  padding: 4px;
+  font-family: var(--font-family);
+}
+
+.tabbar a {
+  display: inline-block;
+  position: relative;
+  color: black;
+}
+
+.tabbar a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--orange);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.tabbar a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.desktop-nav {
+  margin: 0 5vw;
+}
+
+/* ---------- Call to action btn ---------- */
+.cta-btn {
+  color: white;
+  background-color: var(--orange);
+  border: none;
+  border-radius: 3px;
+  padding: 10px 25px;
+  font-family: var(--font-family);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  box-shadow: 0px 2px 4px rgba(22, 22, 22, 0.2);
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background-color: rgb(255, 166, 0);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fa-facebook:hover {
+  color: rgb(255, 166, 0);
+}
+
+/* ---------- Hero styling ---------- */
+#home {
+  background-color: var(--light-grey);
+}
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 8%), rgba(0, 0, 0, 8%)),
+    url(../img/hero.jpg);
+  background-attachment: scroll;
+  background-position: center bottom;
+  background-size: cover;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  height: 91.5vh;
+}
+
+.hero-about {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.about-video-hero-container {
+  width: 100%;
+  height: 100%;
+  max-height: 1080px;
+  max-width: 1920px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -999;
+  overflow: hidden;
+}
+
+.hero_video {
+  position: relative;
+  width: auto;
+  min-width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-size: cover;
+  display: block;
+  overflow: hidden;
+  filter: saturate(1.25);
+}
+
+.hero-produkter {
+  background-image: linear-gradient(rgba(0, 0, 0, 8%), rgba(0, 0, 0, 8%)),
+    url(../img/hero_test.jpeg);
+  background-attachment: scroll;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  height: 75vh;
+}
+
+.content {
+  display: flex;
+  height: 75vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-all {
+  color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+.content-forside {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 5%;
+}
+
+.content-all-forside {
+  color: #f1f1f1;
+  padding: 20px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.content-all-forside h1 {
+  font-family: var(--font-family-header);
+  font-size: clamp(1.5rem, 10vw, 4rem);
+  text-shadow: 1px 0px 50px #000;
+}
+
+.content-all-forside p {
+  font-family: var(--font-family);
+  font-size: clamp(1.1rem, 1.3rem, 2.5rem);
+  margin-bottom: 30px;
+  text-shadow: 1px 0px 50px #000, 0 0 1em black;
+}
+
+.content h1 {
+  font-size: clamp(1.5rem, 10vw, 4rem);
+  font-family: var(--font-family-header);
+  color: var(--light-grey);
+  margin: 0;
+  text-shadow: 0px 0px 50px #000;
+}
+
+.content p {
+  font-size: 2rem;
+  font-family: var(--font-family-header);
+  max-width: 100%;
+  color: var(--light-grey);
+  text-shadow: 0px 0px 50px #000;
+}
+
+/* ---------- info-kort styling forside ---------- */
+#info-kort {
+  margin: 10vh 0 18vh;
+}
+
+.info-kort-bg {
+  margin: 0 5%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: right;
+  position: relative;
+  padding: 50px 0px 0px 0px;
+}
+
+.info-kort-img {
+  min-width: 300px;
+  max-width: 400px;
+  /*
+  position: absolute; */
+  top: -10%;
+  transform: translateY(-50%);
+  left: 4%;
+  transform: translateX(0%);
+  width: 50%;
+  margin: auto;
+}
+
+.kort-img-jersey {
+  width: 100%;
+}
+
+.info-kort-text {
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  width: 46%;
+  min-width: 350px;
+  text-align: left;
+  margin: 0 2%;
+  line-height: 1.5;
+  height: 300px;
+}
+
+.info-kort-text h2 {
+  font-family: var(--font-family-header);
+  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+}
+
+.info-kort-text button {
+  margin: 20px 0;
+}
+
+/* ---------- Forslag header styling forside ---------- */
+.forslag-header h2 {
+  font-family: var(--font-family-header);
+  display: block;
+  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+}
+
+.forslag-header {
+  margin: 0 0 15vh 0;
+}
+
+.linje {
+  background-color: var(--orange);
+  width: 40px;
+  height: 2.5px;
+  margin: 0 auto 2.5vh auto;
+}
+
+.produkt-kort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 75%;
+  margin: auto;
+  gap: 40px;
+}
+
+/* ---------- Lagerstatus på produktside ---------- */
+.dashboard_lagerstatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard_lagerstatus-specifik {
+  display: flex;
+  align-items: center;
+}
+
+.greendot,
+.reddot,
+.orangedot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.greendot {
+  background-color: green;
+}
+
+.reddot {
+  background-color: red;
+}
+
+.orangedot {
+  background-color: orange;
+}
+
+/* -------- Produkt kort -------- */
+#product-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  gap: 40px;
+  text-align: center;
+}
+
+.product-content {
+  display: flex;
+  flex-direction: row;
+  margin: 0vw 0vw 5vw 6vw;
+}
+
+.produkt-img {
+  width: 50%;
+}
+
+.produkt-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.kort {
+  background: #fcfcfc;
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+
+  /* min-width: 250px;
+  max-width: 350px; */
+
+  border-radius: 3px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: auto;
+  cursor: pointer;
+}
+
+.kort:not(#nyheder .kort) {
+  display: flex;
+  flex-direction: column;
+}
+
+.kort-img {
+  flex-basis: 55%;
+  height: 55%;
+}
+
+.kort-indhold {
+  flex-basis: 45%;
+}
+
+.kort-img img {
+  border-radius: 5px 5px 0 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.kort:hover {
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+}
+
+.kort-indhold button:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.kort-indhold {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 16px;
+  height: 100%;
+}
+
+.kort-indhold:last-child {
+  margin-top: auto;
+}
+
+.kort-indhold button {
+  background-color: transparent;
+  border: none;
+}
+
+.kort-indhold h3 {
+  text-align: start;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+}
+
+.kgpris {
+  font-size: 16px;
+  color: rgb(196, 196, 196);
+}
+
+.vaegt {
+  font-size: 16px;
+  color: grey;
+}
+
+.pris {
+  font-size: 24px;
+  font-size: clamp(1.3rem, 1.5vw, 2rem);
+  padding: 16px 0;
+}
+
+.justify-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+#all-bofferSteaks,
+#all-stege,
+#all-hakket,
+#all-spegepolse,
+#all-vin {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 40px;
+  max-width: 800px;
+}
+
+/* -------- kategorier forside -------- */
+#kategorier-forside h2 {
+  text-align: center;
+  font-family: var(--font-family-header);
+  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+}
+
+.kategori-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 5% 5vh 5%;
+  color: white;
+  text-align: center;
+}
+
+.top-box {
+  width: 100%;
+  height: 360px;
+  background-image: url("../img/kategori1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 46%;
+  margin-bottom: 2%;
+  -webkit-filter: brightness(100%);
+  position: relative;
+  border-radius: 5px;
+}
+
+.top-box h3,
+.bund-box-venstre h3,
+.bund-box-højre h3 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.bund-box-venstre {
+  width: 49%;
+  min-width: 360px;
+  height: 360px;
+  background-image: url("../img/jersey.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 46%;
+  -webkit-filter: brightness(100%);
+  position: relative;
+  border-radius: 5px;
+  filter: saturate(1.3);
+}
+
+.bund-box-højre {
+  width: 49%;
+  min-width: 360px;
+  height: 360px;
+  background-image: url("../img/omgarden.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 46%;
+  -webkit-filter: brightness(100%);
+  position: relative;
+  border-radius: 5px;
+}
+
+.top-box:hover,
+.bund-box-højre:hover,
+.bund-box-venstre:hover {
+  -webkit-filter: brightness(60%);
+  -webkit-transition: all 0.75s ease-in-out;
+  -moz-transition: all 0.75s ease;
+  -o-transition: all 0.75s ease;
+  -ms-transition: all 0.75s ease;
+  transition: all 0.75s ease;
+  cursor: pointer;
+}
+
+/*Jersey ko siden */
+#imagemapping-sektion {
+  margin-top: 50px;
+}
+
+#imagemapping-sektion h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#jersey svg {
+  min-width: 600px;
+  max-width: 50%;
+}
+
+.imagemapping_headertekst {
+  margin: 10px 50px;
+}
+
+/* #brisket-product,
+#plate-product,
+#rib-product,
+#flank-product,
+#topsirloin-product,
+#round-product {
+  display: none;
+} */
+
+#hero-jersey {
+  background-image: linear-gradient(rgba(0, 0, 0, 8%), rgba(0, 0, 0, 8%)),
+    url(../img/jersey.jpg);
+  background-attachment: scroll;
+  background-position: 50% 50%;
+  background-size: cover;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family-header);
+  color: white;
+  height: 75vh;
+}
+#hero-jersey h1 {
+  font-size: clamp(1.5rem, 10vw, 4rem);
+  text-shadow: 0px 0px 50px #000;
+}
+
+#hero-jersey p {
+  font-size: 2rem;
+  font-weight: 400;
+}
+#cut-beskrivelse {
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+#image-beskrivelse {
+  margin-bottom: 10px;
+}
+.image-products {
+  margin: 0 auto;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  justify-content: center;
+  gap: 5vh;
+}
+
+.jersey_ko_om {
+  margin: 133px 0px !important;
+}
+
+.cowlife_box {
+  background-image: url(../img/cowlife.jpg);
+}
+
+.image-products article {
+  margin: 0 auto;
+  width: 24%;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+#neck,
+#chuck,
+#brisket,
+#plate,
+#rib,
+#shortloin,
+#flank,
+#top-sirloin,
+#bottom-sirloin,
+#round {
+  cursor: pointer;
+}
+
+/* -------- Vores værdier på Om Gården -------- */
+.vores-vaerdier {
+  margin: 25vh 0;
+}
+
+.vores-vaerdier h2 {
+  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+  font-family: var(--font-family-header);
+}
+
+.vores-vaerdier article {
+  margin: 10vh auto;
+  max-width: 500px;
+  min-height: 200px;
+}
+
+.vores-vaerdier article button {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 5vh;
+  cursor: pointer;
+}
+
+/*
+.fa-hands,
+.fa-handshake,
+.fa-map-marked-alt {
+  padding: 25px;
+  margin: auto;
+  border: 1px solid transparent;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.fa-hands:hover {
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+}
+*/
+
+.vaerdi p:hover {
+  text-decoration: underline;
+}
+
+.alle-vaerdier {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 900px;
+  margin: auto;
+}
+
+.vaerdi {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  align-items: center;
+  cursor: pointer;
+}
+
+.vaerdi button {
+  border: none;
+  background-color: transparent;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+#vaerdi-1 {
+  display: none;
+}
+
+#vaerdi-2 {
+  display: none;
+}
+
+#vaerdi-3 {
+  display: none;
+}
+
+#vaerdi-1 p,
+#vaerdi-2 p,
+#vaerdi-3 p {
+  line-height: 1.5;
+}
+
+/* Wrapper */
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+#tilTopBtn {
+  display: none;
+}
+
+/* --------- Om gården -------- */
+.about-content-hero h1 {
+  color: white;
+  font-family: var(--font-family-header);
+  font-size: clamp(1.5rem, 10vw, 4rem);
+  text-shadow: 0px 0px 50px #000;
+}
+
+.about-us-subheader {
+  font-family: var(--font-family-header);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--light-grey);
+  text-shadow: 0px 0px 50px #000;
+}
+
+.about-content-hero p {
+  color: grey;
+}
+
+.margin-bottom {
+  margin-bottom: 35px;
+}
+
+.grid-container {
+  display: grid;
+  width: 100%;
+  margin: auto;
+  grid-template-columns: 1fr 1fr;
+  line-height: 1.5;
+  padding: 0 15%;
+}
+
+.grid-container > article {
+  text-align: left;
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+}
+
+.about-us-text.about_gaarden {
+  margin-right: 50px;
+}
+
+.about-us-text.about_visitnordfyn {
+  margin-left: 50px;
+}
+
+.img_box {
+  display: flex;
+  justify-content: left;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.gaardejerne_img {
+  background-image: url(../img/cheferne.jpg);
+}
+
+.visitnordfyn_img {
+  background-image: url(../img/cowlife.jpg);
+}
+
+.about-us-text h2 {
+  font-family: var(--font-family-header);
+  font-size: 2rem;
+  display: flex;
+}
+
+.about-us-text blockquote p::before {
+  content: "\201C";
+}
+
+.about-us-text blockquote p::after {
+  content: "\201D";
+}
+
+.h2_facebook {
+  margin-top: 25vh;
+  text-align: center;
+  font-family: var(--font-family-header);
+  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+}
+
+.fb-page {
+  margin-bottom: 100px;
+  width: 90%;
+}
+
+.googlemaps {
+  display: block;
+  margin-bottom: 5vh;
+}
+/* ---------- Footer ---------- */
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 75px 10% 75px 10%;
+  background-color: #f6f6f6;
+}
+
+footer h2 {
+  font-size: 16px;
+  color: var(--orange);
+  padding: 10px 0;
+}
+
+footer p,
+footer ul {
+  font-size: 14px;
+}
+
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.left-footer,
+.middle-footer,
+.right-footer {
+  justify-content: center;
+  text-align: start;
+  width: 20%;
+  padding-left: 6%;
+}
+
+.fa-facebook {
+  color: var(--orange);
+}
+
+.contact-info {
+  padding-top: 10px;
+}
+
+.right-footer h2 {
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  /* Navigation */
+  .tabbar {
+    flex-direction: column;
+    height: auto;
+    padding: 48px 0;
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    align-items: center;
+  }
+
+  .logo-nav {
+    display: none;
+  }
+
+  .product-nav,
+  .right-nav {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .jersey-nav {
+    margin: 48px 0 0 0;
+  }
+
+  #burger {
+    background-color: white;
+    padding: 10px;
+    right: 40px;
+    top: 40px;
+    border: none;
+  }
+
+  .display {
+    display: flex;
+  }
+
+  /* Forside */
+  .info-kort-text {
+    margin-top: 35px;
+    width: 90%;
+  }
+
+  .content-forside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .bund-box-højre,
+  .bund-box-venstre {
+    min-width: 0;
+  }
+
+  /* Produkt */
+  /* .kort {
+    max-width: 250px;
+  } */
+
+  #all-bofferSteaks,
+  #all-stege,
+  #all-hakket,
+  #all-spegepolse,
+  #all-vin {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(290px, 1fr));
+    grid-gap: 40px;
+  }
+
+  /* Jersey ko siden */
+  #jersey svg {
+    min-width: 310px;
+    max-width: 90%;
+  }
+
+  /* Om gården */
+
+  .vores-vaerdier {
+    margin: 15vh 0;
+  }
+}
+
+.split {
+  height: 1000px;
+}
+
+/****************************************************** Produkt-side ******************************************************/
+#nyheder article {
+  padding: 16px;
+}
+
+.center-content {
+  padding-top: 7em;
+  width: 100%;
+  margin: auto;
+}
+
+.first-article {
+  margin-top: 5vh;
+}
+
+.custom-select {
+  position: fixed;
+  font-family: Arial;
+  bottom: 10vh;
+  z-index: 100;
+  width: 50vw;
+  transform: translate(50%, 0);
+}
+
+.custom-select select {
+  display: none;
+  /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: #e28f47;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  background-color: #ffc593;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-radius: 5px;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.produkter {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.nyheder {
+  width: 100%;
+}
+
+.kategori {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 40px 0px;
+  padding: 0 0px;
+}
+
+.produkter h1 {
+  display: block;
+  position: sticky;
+  text-align: start;
+  left: 3em;
+  top: 5em;
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.all-articles {
+  margin: auto;
+  z-index: 1;
+}
+
+.nav-container {
+  position: sticky;
+  top: 40%;
+  text-align: start;
+}
+
+.nav-container ul li {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.nav-container ul li.active {
+  background-color: #e28f47;
+  transition: 1s ease;
+  border-radius: 5px;
+}
+
+.mobile-produkt-nav {
+  display: none;
+}
+
+.mobile-nav-container ul li.active {
+  color: #e28f47;
+  border-radius: 5px;
+}
+
+.mobile-nav-container ul li.active a {
+  color: #e28f47;
+}
+
+.nav-container ul li.active a {
+  color: white;
+}
+
+.nav-container ul li a {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-container ul li.active a {
+  color: white;
+}
+
+/* -------- Specifikt produkt-kort -------- */
+.product-card {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: left;
+  justify-content: space-between;
+}
+
+.produkt-indhold {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  margin: auto;
+  padding: 10vh 0;
+}
+
+.produkt-navigation {
+  display: flex;
+  flex-direction: row;
+  margin: 3vh 0 3vh -0px;
+  cursor: pointer;
+}
+
+.desktop-produkt {
+  display: flex;
+}
+
+.mobile-produkt {
+  display: none;
+}
+
+.produkt-navigation h2 {
+  align-items: center;
+  margin: auto auto auto 28px;
+}
+
+.produkt-navigation img {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.produkt-names h3 {
+  font-size: clamp(1.5rem, 5vw, 4rem);
+}
+
+.description {
+  max-width: 400px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.produkt-information {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.specifik-info,
+.dashboard_lagerstatus-specifik {
+  flex: 0 50%;
+  width: 50%;
+  margin-top: auto;
+}
+
+.specifik-info-top {
+  font-size: 16px;
+  color: #777777;
+  margin-top: 28px;
+}
+
+.specifik-info-bottom {
+  font-size: 24px;
+  color: black;
+}
+
+/* -------- Produkter mobil-navigation -------- */
+@media screen and (max-width: 900px) {
+  /* Jersey ko mobile */
+  .image-products article {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  .image-products {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  /* Produkt */
+  .bund-box-højre {
+    width: 100%;
+    height: 360px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 46%;
+    margin-bottom: 2%;
+  }
+
+  .bund-box-venstre {
+    width: 100%;
+    height: 360px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 46%;
+    margin-bottom: 2%;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .product-content {
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-produkt-nav {
+    display: block;
+    width: 100%;
+    background-color: white;
+    z-index: 777;
+    padding: 1em 0;
+  }
+
+  .mobile-nav-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    white-space: nowrap;
+    padding-right: 10vh;
+  }
+
+  .mobile-nav-container ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    list-style-type: none;
+    padding-inline-start: 0;
+    gap: 40px;
+  }
+
+  .mobile-nav-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-nav-container ul li a {
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 16px;
+    color: black;
+  }
+
+  .mobile-produkt-nav {
+    position: sticky;
+    top: 0;
+    padding: 7.5vh 0 2.5vh 0;
+  }
+
+  .mobile-produkt-nav h2 {
+    font-size: 32px;
+    text-align: start;
+    padding-bottom: 16px;
+    font-weight: bold;
+  }
+
+  .mobile-produkt-nav h2,
+  .mobile-nav-container {
+    padding-left: 5%;
+  }
+
+  .center-content {
+    padding-top: 0;
+    width: 100%;
+    margin: auto;
+  }
+
+  .content p {
+    margin: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .content-all {
+    text-align: center;
+    margin: 0;
+  }
+
+  .boffer5 {
+    padding-right: 64px;
+  }
+  /* -------- Om os side -------- */
+}
+@media (max-width: 800px) {
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 5%;
+  }
+
+  .about-us-text.about_gaarden,
+  .about-us-text.about_visitnordfyn {
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 50px;
+  }
+
+  .about_visitnordfyn p {
+    font-style: italic;
+  }
+
+  .alle-vaerdier {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vaerdi {
+    margin-bottom: 3rem;
+  }
+
+  /* -------- Specifik produkt side -------- */
+  .product-card {
+    flex-direction: column;
+  }
+
+  .produkt-img {
+    min-width: 100%;
+  }
+
+  .produkt-indhold {
+    padding-top: 0;
+    max-width: 90%;
+    margin: 24px auto;
+  }
+
+  .produkt-navigation {
+    padding: 3vh 0;
+  }
+
+  .desktop-produkt {
+    display: none;
+  }
+
+  .mobile-produkt {
+    display: flex;
+    padding-left: 5vw;
+    position: sticky;
+    top: 0;
+    margin-left: 0;
+    background-color: white;
+  }
+
+  /* -------- Footer ------- */
+  .left-footer,
+  .middle-footer,
+  .right-footer {
+    width: 100%;
+    margin-bottom: 5vh;
+  }
+
+  .find-us {
+    margin-bottom: 2.5vh;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  /* Forside */
+  .info-kort-bg {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 75%;
+    margin: auto;
+  }
+
+  .info-kort-img {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .info-kort-text {
+    margin-top: 35px;
+    width: 70%;
+    /* min-width: 300px;
+    max-width: 400px; */
+    height: auto;
+    min-width: auto;
+  }
+
+  .about-us:last-of-type {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .img_box {
+    min-height: 300px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  /* Produktside */
+
+  .produkt-kort {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* .kort {
+    max-width: 300px;
+  } */
+
+  .kategori {
+    padding-left: 0;
+  }
+
+  #tilTopBtn {
+    display: block;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    border: none;
+    height: 45px;
+    width: 45px;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #all-bofferSteaks,
+  #all-stege,
+  #all-hakket,
+  #all-spegepolse,
+  #all-vin {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(300px, 400px));
+    grid-auto-rows: 1fr;
+    grid-gap: 40px;
+    max-width: 800px;
+  }
+}
+
+@media screen and (min-width: 1168px) {
+  .produkt-navigation {
+    margin: 3vh 0 3vh -60px;
+  }
+}
