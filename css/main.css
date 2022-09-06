@@ -1318,9 +1318,9 @@ footer a {
     display: flex;
     width: 100%;
     height: 100%;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
     white-space: nowrap;
-    padding-right: 10vh;
   }
 
   .mobile-nav-container ul {
@@ -1331,6 +1331,7 @@ footer a {
     list-style-type: none;
     padding-inline-start: 0;
     gap: 40px;
+    margin-right: 67vh;
   }
 
   .mobile-nav-container::-webkit-scrollbar {
