@@ -1361,7 +1361,7 @@ footer a {
   .mobile-produkt-nav h2,
   .mobile-nav-container {
     padding-left: 5%;
-    margin-right: 42.5vh;
+    margin-right: 42.5vh !important;
   }
 
   .center-content {
