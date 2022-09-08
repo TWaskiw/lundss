@@ -32,14 +32,6 @@ function navigateTo(pageId) {
   location.href = `#${pageId}`;
 }
 
-// Scroll til top når siden åbnes (denne funktion kaldes på alle sider undtagen "#products" i pageChange())
-$("#tilTopBtn").click(function () {
-  $("html, body").animate({
-    scrollTop: 0
-  }, 600);
-  return false;
-});
-
 function scrollToTop() {
   window.scroll({
     top: 0,

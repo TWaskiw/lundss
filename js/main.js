@@ -590,10 +590,6 @@ $(window).on("scroll", function () {
           },
           0
         );
-        console.log(
-          navMobile.find("." + $(this)[0].id).offset(),
-          navMobile.scrollLeft()
-        );
       }
     }
   });
