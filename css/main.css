@@ -1360,6 +1360,7 @@ footer a {
 
   .mobile-produkt-nav h2,
   .mobile-nav-container {
+    background-color: red;
     padding-left: 5%;
     margin-right: 42.5vh !important;
   }
