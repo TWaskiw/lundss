@@ -595,17 +595,12 @@ $(window).on("scroll", function () {
   });
 });
 
-// $(window).on("load", function() {
-//   var reed = document.querySelectorAll('.kortImg');
-
-//   console.log(reed);
-
-//   let lengths = Array.from(reed).map(e => e.offsetHeight);
-//   let max = Math.max(...lengths);
-
-//   for (let i = 0; i < reed.length; i++) {
-//     reed[i].style.minHeight = max + "px";
-//     console.log(reed);
-//   }
-
-// });
+$("#tilTopBtn").click(function () {
+  $("html, body").animate(
+    {
+      scrollTop: 0,
+    },
+    600
+  );
+  return false;
+});
