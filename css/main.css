@@ -399,7 +399,6 @@ img {
 }
 
 .produkt-img img {
-  min-height: calc(100vh - 80px);
   width: 100%;
   object-fit: cover;
   height: 100%;
@@ -927,6 +926,12 @@ footer a {
   padding-bottom: 0;
 }
 
+@media screen and (min-width: 767px) {
+  .produkt-img img {
+    min-height: calc(100vh - 80px);
+  }
+}
+
 @media screen and (max-width: 767px) {
   /* Navigation */
   .tabbar {
@@ -947,6 +952,10 @@ footer a {
 
   .logo-nav {
     display: none;
+  }
+
+  .produkt-img img {
+    min-height: 100%;
   }
 
   .product-nav,
@@ -1429,6 +1438,7 @@ footer a {
     padding-top: 0;
     max-width: 90%;
     margin: 24px auto;
+    padding: 0;
   }
 
   .produkt-navigation {
