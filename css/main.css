@@ -396,6 +396,7 @@ img {
 
 .produkt-img {
   width: 50%;
+  height: calc(100vh - 80px);
 }
 
 .produkt-img img {
