@@ -927,12 +927,6 @@ footer a {
   padding-bottom: 0;
 }
 
-@media screen and (min-width: 767px) {
-  .produkt-img img {
-    min-height: calc(100vh - 80px);
-  }
-}
-
 @media screen and (max-width: 767px) {
   /* Navigation */
   .tabbar {
@@ -1371,7 +1365,6 @@ footer a {
 
   .mobile-produkt-nav h2,
   .mobile-nav-container {
-    background-color: red;
     padding-left: 5%;
     margin-right: 42.5vh !important;
   }
@@ -1433,6 +1426,7 @@ footer a {
 
   .produkt-img {
     min-width: 100%;
+    height: calc(50vh - 80px);
   }
 
   .produkt-indhold {
