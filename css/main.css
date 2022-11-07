@@ -1336,7 +1336,6 @@ footer a {
     list-style-type: none;
     padding-inline-start: 0;
     gap: 40px;
-    margin-right: 67vh;
   }
 
   .mobile-nav-container::-webkit-scrollbar {
@@ -1348,6 +1347,7 @@ footer a {
     list-style-type: none;
     font-size: 16px;
     color: black;
+    padding: 20px 0;
   }
 
   .mobile-produkt-nav {
@@ -1546,6 +1546,10 @@ footer a {
     grid-auto-rows: 1fr;
     grid-gap: 40px;
     max-width: 800px;
+  }
+
+  #all-vin {
+    padding-right: 40px;
   }
 
   .produkt-img img {

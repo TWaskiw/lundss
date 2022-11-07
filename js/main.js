@@ -139,6 +139,7 @@ function filterProdukter(products) {
   let stege = [];
   let hakketOkse = [];
   let spegePolse = [];
+  let is = [];
   let vin = [];
   for (const product of products) {
     if (product.category === "Bøffer/Steaks") {
@@ -149,6 +150,8 @@ function filterProdukter(products) {
       hakketOkse.push(product);
     } else if (product.category === "Spegepølse") {
       spegePolse.push(product);
+    } else if (product.category === "Is") {
+      is.push(product);
     } else if (product.category === "Vin") {
       vin.push(product);
     }
