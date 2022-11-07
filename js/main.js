@@ -160,6 +160,7 @@ function filterProdukter(products) {
   appendProdukter(stege, "all-stege");
   appendProdukter(hakketOkse, "all-hakket");
   appendProdukter(spegePolse, "all-spegepolse");
+  appendProdukter(is, "all-is");
   appendVin(vin, "all-vin");
 }
 
