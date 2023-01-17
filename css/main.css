@@ -765,7 +765,6 @@ img {
 
 #tilTopBtn {
   display: none;
-  animation: 1s linear;
 }
 
 /* --------- Om gården -------- */
@@ -1369,7 +1368,6 @@ footer a {
   .mobile-produkt-nav h2,
   .mobile-nav-container {
     padding-left: 5%;
-    margin-right: 42.5vh !important;
   }
 
   .center-content {
