@@ -140,28 +140,38 @@ function filterProdukter(products) {
   let hakketOkse = [];
   let spegePolse = [];
   let is = [];
-  let vin = [];
+  /* let vin = []; */
   for (const product of products) {
-    if (product.category === "Bøffer/Steaks") {
+    if (product.category === "Bøffer/Steaks" && product.visProdukt === "Ja") {
       bofferSteaks.push(product);
-    } else if (product.category === "Hele stege") {
+    } else if (
+      product.category === "Hele stege" &&
+      product.visProdukt === "Ja"
+    ) {
       stege.push(product);
-    } else if (product.category === "Hakket oksekød") {
+    } else if (
+      product.category === "Hakket oksekød" &&
+      product.visProdukt === "Ja"
+    ) {
       hakketOkse.push(product);
-    } else if (product.category === "Spegepølse") {
+    } else if (
+      product.category === "Spegepølse" &&
+      product.visProdukt === "Ja"
+    ) {
       spegePolse.push(product);
-    } else if (product.category === "Is") {
+    } else if (product.category === "Is" && product.visProdukt === "Ja") {
       is.push(product);
-    } else if (product.category === "Vin") {
-      vin.push(product);
-    }
+    } /* else if (product.category === "Vin") {
+      vin.push(product); */
   }
+
   appendProdukter(bofferSteaks, "all-bofferSteaks");
   appendProdukter(stege, "all-stege");
   appendProdukter(hakketOkse, "all-hakket");
   appendProdukter(spegePolse, "all-spegepolse");
   appendProdukter(is, "all-is");
-  appendVin(vin, "all-vin");
+  /*
+  appendVin(vin, "all-vin"); */
 }
 
 // Thomas & Rune
@@ -411,10 +421,10 @@ function appendCuts(products, containerId) {
   for (let product of products) {
     htmlTemplate += /*html*/ `
       <article class="kort" onclick="showProduct('${product.id}')">
-      <div class="kort-img-jersey">
+      <div class="kort-img-jersey kort-halv">
         <img src="${product.img}">
         </div>
-        <div class="kort-indhold">
+        <div class="kort-indhold kort-halv">
           <h3>${product.name}</h3>
                 <p style="text-align:left;">${product.description}</p>
           <div class="justify-content">
@@ -553,7 +563,7 @@ function clearArray() {
 
 // Thomas
 // Luk alle værdier
-function resetVaerdier() {
+/* function resetVaerdier() {
   document.getElementById("vaerdi-1").style.display = "none";
   document.getElementById("vaerdi-2").style.display = "none";
   document.getElementById("vaerdi-3").style.display = "none";
@@ -564,7 +574,7 @@ function resetVaerdier() {
 function vaerdier(value) {
   resetVaerdier();
   document.getElementById(value).style.display = "block";
-}
+} */
 
 var nav = $(".nav-container");
 var navMobile = $(".mobile-nav-container");
@@ -598,6 +608,24 @@ $(window).on("scroll", function () {
     }
   });
 });
+
+let mybutton = document.getElementById("tilTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 200 ||
+    document.documentElement.scrollTop > 200
+  ) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 
 $("#tilTopBtn").click(function () {
   $("html, body").animate(

@@ -16,7 +16,6 @@ import {
   addDoc,
 } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
-// Alle
 // Import auth + login
 import {
   getAuth,
@@ -24,7 +23,6 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
 
-// Alle
 // Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBnpudAe8UD65KZ7IPm8UtZl72KTYMKzXg",
@@ -36,7 +34,6 @@ const firebaseConfig = {
   appId: "1:407869533641:web:fee7b71b904a6f1e0b4c18",
 };
 
-// Alle
 // Initialize Firebase
 initializeApp(firebaseConfig);
 const _db = getFirestore();
@@ -52,12 +49,10 @@ let _nyheder = [];
 let _valgteProduktId = "";
 let _valgteImgFil = "";
 
-// Alle (+Rasmus)
 window.search = (value) => search(value);
 window.visOpdater = (value) => visOpdater(value);
 // ==================== READ ====================
 
-// Alle
 // Til at hente produkter data fra firebase
 onSnapshot(_produkterRef, (snapshot) => {
   // Snapshot data fra firebase til objects
@@ -67,14 +62,12 @@ onSnapshot(_produkterRef, (snapshot) => {
     return produkt;
   });
 
-  // Sigurd
   // Sorterer array af objects alfabetisk
   _produkter.sort((a, b) => a.name.localeCompare(b.name));
   // Append produkter ind i global variabel
   appendProdukter(_produkter);
 });
 
-// Alle
 onSnapshot(_nyhederRef, (snapshot) => {
   // Snapshot data fra firebase til objects
   _nyheder = snapshot.docs.map((doc) => {
@@ -85,7 +78,6 @@ onSnapshot(_nyhederRef, (snapshot) => {
   appendNyheder(_nyheder);
 });
 
-// Alle
 // Appender produkterne
 function appendProdukter(produkter) {
   let htmlTemplate = "";
@@ -107,6 +99,9 @@ function appendProdukter(produkter) {
     <div class="dashboard_lagerstatus"><p>Lagerstatus:</p>${optionalList(
       produkt
     )} ${produkt.stock}</div>
+        <p><span class="nyheder_span">Vises produkt?</span> ${
+          produkt.visProdukt
+        }</p>
     </div>
 
     <!-- Opdater/slet knapper -->
@@ -132,7 +127,6 @@ function appendProdukter(produkter) {
   });
 }
 
-// Sigurd
 // Appender nyhed(er)
 function appendNyheder(nyhed) {
   let nyhedTemplate = "";
@@ -157,7 +151,6 @@ function appendNyheder(nyhed) {
 }
 
 // ==================== CREATE ====================
-// Sigurd, Rune, Alexander
 // Tilføjer et nyt produkt til firebase databasen
 function nytProdukt() {
   // Får data fra input fields
@@ -171,8 +164,10 @@ function nytProdukt() {
   let stockInput = document.querySelector("#lagerstatus");
   let kgpriceInput = document.querySelector("#kgprice");
   let forsideInput = document.querySelector('input[name="forslag"]:checked');
+  let visProduktInput = document.querySelector(
+    'input[name="visProdukt"]:checked'
+  );
 
-  // Sigurd, Rune
   // Variabel der indeholder data fra input fields til at lave et object, der tilføjes firebase databasen
   const nytProdukt = {
     // Gør det første bogstav i sætningen stort
@@ -188,6 +183,7 @@ function nytProdukt() {
     stock: stockInput.value,
     kgprice: kgpriceInput.value,
     forsideForslag: forsideInput.value,
+    visProdukt: visProduktInput.value,
   };
 
   // Indbygget firebase funktion addDoc der tilføjer dataene til databasen
@@ -204,9 +200,9 @@ function nytProdukt() {
   stockInput.value = "";
   kgpriceInput.value = "";
   forsideInput.value = "";
+  visProduktInput.value = "";
 }
 
-// Sigurd
 // Finder værdien fra vores <textarea>, fylder vores tomme <div> #showText med den værdi, og tillader samtidig at skrive mere
 function textAreaNyhed() {
   let textContent = document.getElementById("textContent");
@@ -220,7 +216,6 @@ function textAreaNyhed() {
 }
 textAreaNyhed();
 
-// Sigurd
 // Tilføjer en nyhed til firebase databasen, fungerer præcis som ovenstående, bortset fra <textarea> ikke har et reset
 function lavNyhed() {
   let nyhedInput = document.querySelector("#textContent");
@@ -232,7 +227,6 @@ function lavNyhed() {
 }
 
 // ==================== UPDATE ====================
-// Sigurd, Rune, Alexander
 // Vælger et produkt ud fra dets id
 function valgtProdukt(id) {
   // Global tom variabel som allerede er declared
@@ -250,7 +244,6 @@ function valgtProdukt(id) {
   document.querySelector("#lagerstatus-update").value = produkt.stock;
   document.querySelector("#kgprice-update").value = produkt.kgprice;
 
-  // Sigurd
   // Checker den radio button som matcher værdien fra forsideForslag property
   if (
     document.querySelector("#ja-forside-update").value ===
@@ -258,12 +251,23 @@ function valgtProdukt(id) {
   ) {
     document.querySelector("#ja-forside-update").checked = true;
   }
-
   if (
     document.querySelector("#nej-forside-update").value ===
     produkt.forsideForslag
   ) {
     document.querySelector("#nej-forside-update").checked = true;
+  }
+
+  if (
+    document.querySelector("#ja-produkt-update").value === produkt.visProdukt
+  ) {
+    document.querySelector("#ja-produkt-update").checked = true;
+  }
+
+  if (
+    document.querySelector("#nej-produkt-update").value === produkt.visProdukt
+  ) {
+    document.querySelector("#nej-produkt-update").checked = true;
   }
 
   // Scroller ned til <form>
@@ -272,7 +276,6 @@ function valgtProdukt(id) {
   });
 }
 
-// Sigurd, Rune
 // Opdaterer produktet som er valgt med valgtProdukt()
 function opdaterProdukt() {
   // Variabel der indeholder data fra input fields til at opdatere object der ligger i firebase databasen
@@ -295,6 +298,8 @@ function opdaterProdukt() {
     forsideForslag: document.querySelector(
       'input[name="forslag-update"]:checked'
     ).value,
+    visProdukt: document.querySelector('input[name="visProdukt"]:checked')
+      .value,
   };
   const produktRef = doc(_produkterRef, _valgteProduktId);
   // Indbygget firebase funktion updateDoc der opdaterer dataene til databasen
@@ -313,13 +318,11 @@ function opdaterProdukt() {
 }
 
 // ==================== DELETE ====================
-// Sigurd, Rune
 // Sletter produktet som er valgt med valgtProdukt()
 function sletProdukt(id) {
   // Matcher med id
   const docRef = doc(_produkterRef, id);
 
-  // Sigurd
   // Indbygget SweetAlert properties til at customize en alert, når sletProdukt() kaldes
   Swal.fire({
     title: "Er du sikker på at du vil slette dette produkt?",
@@ -351,11 +354,10 @@ function sletProdukt(id) {
     });
 }
 
-// Sigurd
 // Sletter nyheden som er valgt med data-id. Funktionen er ens med ovenstående sletProdukt()
 function fjernNyhed(id) {
   let nyhedRef = doc(_nyhederRef, id);
-  // Sigurd
+
   Swal.fire({
     title: "Er du sikker på at du vil fjerne nyheden?",
     text: "Nyheden kan ikke genoprettes.",
@@ -381,7 +383,6 @@ function fjernNyhed(id) {
 
 // ==================== CUSTOM SCRIPTS ====================
 
-// Sigurd
 // Funktion der anvendes i appendProdukter() til at vise hvor mange objects der vises på forsiden i index.html
 function forsideAntal() {
   // Finder antal af objects der har property "forsideForslag" med værdien "Ja"
@@ -419,14 +420,11 @@ function forsideAntal() {
   return htmlCount;
 }
 
-// Sigurd
 // Viser en advarsel, hvis admin er i gang med at sætte et ekstra object over på forsiden når max kapacitet (3) er nået
 function godkendtForside() {
-  // Sigurd
   // Finder antal af objects der har property "forsideForslag" med værdien "Ja"
   let count = _produkter.filter((x) => x.forsideForslag == "Ja").length;
 
-  // Sigurd
   // Modal er triggered når max kapacitet er nået (3 eller over)
   if (count === 3 || count > 3) {
     Swal.fire({
@@ -447,7 +445,7 @@ function godkendtForside() {
       cancelButtonColor: "#D72828",
       confirmButtonText: "Bekræft",
     })
-      // Sigurd
+
       // Triggered når admin vælger "bekræft"
       .then((result) => {
         if (result.isConfirmed) {
@@ -475,7 +473,6 @@ function godkendtForside() {
   }
 }
 
-// Sigurd
 // Funktion der viser en prik der repræsenterer lagerstatus, som bruges i appendProdukter()
 function optionalList(lager) {
   let htmlOptional = "";
@@ -497,7 +494,6 @@ function optionalList(lager) {
   return htmlOptional;
 }
 
-// Alle
 // Funktion der displayer et preview af den valgte img fil
 function previewImg(file, previewId) {
   if (file) {
@@ -513,7 +509,6 @@ function previewImg(file, previewId) {
   }
 }
 
-// Sigurd
 // Lader admin der er logget ind komme direkte hen til products
 onAuthStateChanged(_auth, (user) => {
   if (user) {
@@ -528,7 +523,6 @@ onAuthStateChanged(_auth, (user) => {
   }
 });
 
-// Sigurd
 // Login gennem firebase auth
 function login() {
   // Tager værdi fra input fields
@@ -551,7 +545,6 @@ function login() {
 }
 
 // =========== ATTACH EVENTS ===========
-// Alle
 // Kalder opdaterProdukt() når der trykkes på button
 document.querySelector("#btn-update").onclick = () => opdaterProdukt();
 
@@ -561,7 +554,6 @@ document.querySelector("#btn-create").onclick = () => nytProdukt();
 // Kalder lavNyhed() når der trykkes på button
 document.querySelector("#lav-nyhed").onclick = () => lavNyhed();
 
-// Sigurd
 // Kalder godkendtForside() når der trykkes
 document
   .getElementById("ja_forside")
@@ -575,7 +567,6 @@ document.querySelector("#btn-login").onclick = () => login();
 // Viser vores img fil der er uploadet
 window.previewImg = (file, previewId) => previewImg(file, previewId);
 
-// Thomas
 // Søg funktion
 function search(value) {
   value = value.toLowerCase();
@@ -590,7 +581,6 @@ function search(value) {
   appendProdukter(filteredProdukter);
 }
 
-// Alle (+Rasmus)
 // Hvis brugeren ikke er logget ind, sendes de tilbage til login side
 function locationHashChanged() {
   if (location.hash === "#products" && _auth.currentUser === null) {

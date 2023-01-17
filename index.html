@@ -153,7 +153,7 @@
                 <li class="boffer is">
                   <a href="#is">Is</a>
                 </li>
-                <li class="boffer vin"><a href="#vin">Vin</a></li>
+                <!-- <li class="boffer vin"><a href="#vin">Vin</a></li> -->
               </ul>
             </div>
           </div>
@@ -172,7 +172,7 @@
                 <li class="boffer spegepolse">
                   <a href="#spegepolse">Spegepølse</a>
                 </li>
-                <li class="boffer vin"><a href="#vin">Vin</a></li>
+                <!-- <li class="boffer vin"><a href="#vin">Vin</a></li> -->
               </ul>
             </div>
           </div>
@@ -214,12 +214,13 @@
               <div id="all-is"></div>
             </section>
 
+            <!--
             <section class="kategori stege" id="vin">
               <div class="piece">
                 <h1>Vin</h1>
               </div>
               <div id="all-vin"></div>
-            </section>
+            </section> -->
           </div>
         </div>
       </div>
@@ -406,64 +407,69 @@
           <article class="about-us-text about_gaarden">
             <h2>Om os</h2>
             <p>
-              Lundsbjerggaard er ejet af Mie- & Otto W. Pedersen og består af en
+              Lundsbjerggaard er ejet af Mie & Otto W. Pedersen og består af en
               konventionel mælkeproduktion, og planteavlsejendom. <br /><br />
-              Gården har været i familens eje siden 1928, og Otto er 3.
+              Gården har været i familiens eje siden 1928, og Otto er 3.
               generation. I mange år har vi på Lundsbjerggard søgt andre veje
               end den traditionelle produktionsform. Vi vil rigtig gerne tættere
               på forbrugerne, og vise hvad dansk landbrug rent faktisk kan
-              præstere. Derfor har vi valgt at opdrætte noget af det - der efter
-              vores mening, er det bedste oksekød af renracede Jersey tyre.
+              præstere. Derfor har vi valgt at opdrætte renracede Jersey tyre,
+              som giver en rigtig god kvalitet oksekød.
               <br /><br />
-              Jersey tyre har en naturlig og flot fedtmarmorering som giver
-              ekstra saft og smag til kødet. Den gode smag kommer også fordi
-              dyret krogmodner i 3 uger hos vores lokale slagter inden det
-              bliver skåret op og pakkfet. <br /><br />
+              Den gode kvalitet kommer blandt andet fordi kødet krogmodner i 3
+              uger hos vores lokale slagter inden det bliver skåret op og
+              pakket. <br /><br />
+              I efteråret 2022 tog vi et stort skridt videre og begyndte at
+              producere is af vores egen mælk. Isen er italiensk inspireret, og
+              sortimentet vil blive udvidet med tiden.
+              <br />
+              <br />
               Så kig forbi vores gårdbutik og smag forskellen.
             </p>
           </article>
-          <div class="img_box gaardejerne_img"></div>
+          <div class="img_boxes">
+            <div class="img_box gaardejerne_img" src="/img/cheferne.jpg"></div>
+            <p>Jesper og Otto W. Pedersen ved indgangen til gårdbutikken</p>
+          </div>
         </section>
 
         <section class="vores-vaerdier">
           <h2>Vores værdier</h2>
           <div class="linje margin-bottom"></div>
           <div class="alle-vaerdier">
-            <div class="vaerdi" onclick="vaerdier('vaerdi-1')">
-              <button><i class="fas fa-hands fa-3x"></i></button>
+            <div class="vaerdi">
+              <i class="fas fa-hands fa-3x"></i>
               <p>Ansvarlig avl</p>
+              <article id="vaerdi-1">
+                <p>
+                  På lundsbjerggaard er vi også NON GM certificeret - det vil
+                  sige at vi ikke fodre vores dyr, med genmodificerede
+                  foderstoffer fra den anden side af jordkloden
+                </p>
+                <!-- <button class="luk-vaerdi" onclick="resetVaerdier()">x</button> -->
+              </article>
             </div>
-            <div class="vaerdi" onclick="vaerdier('vaerdi-2')">
-              <button><i class="fas fa-handshake fa-3x"></i></button>
+            <div class="vaerdi">
+              <i class="fas fa-handshake fa-3x"></i>
               <p>Bæredygtig landbrug</p>
+
+              <article id="vaerdi-2">
+                <p>Bæredygtig landbrug</p>
+                <!-- <button class="luk-vaerdi" onclick="resetVaerdier()">x</button> -->
+              </article>
             </div>
-            <div class="vaerdi" onclick="vaerdier('vaerdi-3')">
-              <button><i class="fas fa-map-marked-alt fa-3x"></i></button>
+            <div class="vaerdi">
+              <i class="fas fa-map-marked-alt fa-3x"></i>
               <p>Lokalt</p>
+              <article id="vaerdi-3">
+                <p>
+                  Når tyrene skal slagtes bliver de kun transporteret 15 km til
+                  Skallebølle slagtehus, ved Vissenbjerg
+                </p>
+                <!-- <button class="luk-vaerdi" onclick="resetVaerdier()">x</button> -->
+              </article>
             </div>
           </div>
-          <article id="vaerdi-1">
-            <h2>Ansvarlig avl</h2>
-            <p>
-              På lundsbjerggaard er vi også NON GM certificeret - det vil sige
-              at vi ikke fodre vores dyr, med genmodificerede foderstoffer fra
-              den anden side af jordkloden
-            </p>
-            <button class="luk-vaerdi" onclick="resetVaerdier()">x</button>
-          </article>
-          <article id="vaerdi-2">
-            <h2>Værdi 2</h2>
-            <p>Bæredygtig landbrug</p>
-            <button class="luk-vaerdi" onclick="resetVaerdier()">x</button>
-          </article>
-          <article id="vaerdi-3">
-            <h2>Lokalt</h2>
-            <p>
-              Når tyrene skal slagtes bliver de kun transporteret 15 km til
-              Skallebølle slagtehus, ved Vissenbjerg
-            </p>
-            <button class="luk-vaerdi" onclick="resetVaerdier()">x</button>
-          </article>
         </section>
 
         <section class="about-us grid-container">
@@ -558,8 +564,10 @@
       </div>
       <div class="middle-footer">
         <h2>Åbningstider</h2>
-        <p>Fredag: 13-17</p>
-        <p>Lørdag: 10-13</p>
+
+        <p>Torsdag: kl. 15-18</p>
+        <p>Fredag: kl. 10-14</p>
+        <p>Lørdag: kl. 10-14</p>
         <p>Eller efter aftale</p>
       </div>
       <div class="right-footer">

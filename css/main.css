@@ -698,17 +698,7 @@ img {
 }
 
 .vores-vaerdier article {
-  margin: 10vh auto;
-  max-width: 500px;
-  min-height: 200px;
-}
-
-.vores-vaerdier article button {
-  background-color: transparent;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin-top: 5vh;
-  cursor: pointer;
+  margin: 1vh auto;
 }
 
 /*
@@ -728,16 +718,12 @@ img {
 }
 */
 
-.vaerdi p:hover {
-  text-decoration: underline;
-}
-
 .alle-vaerdier {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -746,17 +732,15 @@ img {
   flex-direction: column;
   width: 33%;
   align-items: center;
-  cursor: pointer;
 }
 
-.vaerdi button {
+.vaerdi i {
   border: none;
   background-color: transparent;
   color: var(--orange);
-  cursor: pointer;
 }
 
-#vaerdi-1 {
+/* #vaerdi-1 {
   display: none;
 }
 
@@ -766,12 +750,11 @@ img {
 
 #vaerdi-3 {
   display: none;
-}
+} */
 
 #vaerdi-1 p,
 #vaerdi-2 p,
 #vaerdi-3 p {
-  line-height: 1.5;
 }
 
 /* Wrapper */
@@ -782,6 +765,7 @@ img {
 
 #tilTopBtn {
   display: none;
+  animation: 1s linear;
 }
 
 /* --------- Om gården -------- */
@@ -842,8 +826,27 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.img_boxes {
+  display: flex;
+  flex-direction: column;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.img_boxes p {
+  font-size: smaller;
+  text-align: left;
+}
+
 .gaardejerne_img {
   background-image: url(../img/cheferne.jpg);
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .visitnordfyn_img {
