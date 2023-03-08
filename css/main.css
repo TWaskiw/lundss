@@ -752,7 +752,10 @@ img {
 }
 
 .focuspoint-icon {
-  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
   margin: 1vh;
 }
 
