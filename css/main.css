@@ -320,7 +320,7 @@ img {
 .familieejet-h2 h2 {
   font-family: var(--font-family-header);
   display: block;
-  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+  font-size: 2rem;
 }
 
 .forslag-h2 {
