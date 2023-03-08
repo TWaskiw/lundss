@@ -128,7 +128,7 @@ img {
   border-radius: 3px;
   padding: 10px 25px;
   font-family: var(--font-family);
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   box-shadow: 0px 2px 4px rgba(22, 22, 22, 0.2);
   cursor: pointer;
 }
@@ -298,7 +298,7 @@ img {
 
 .info-kort-text {
   font-family: var(--font-family);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   width: 46%;
   min-width: 350px;
   text-align: left;
@@ -317,7 +317,13 @@ img {
 }
 
 /* ---------- Forslag header styling forside ---------- */
-.forslag-header h2 {
+.familieejet-h2 h2 {
+  font-family: var(--font-family-header);
+  display: block;
+  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+}
+
+.forslag-h2 {
   font-family: var(--font-family-header);
   display: block;
   font-size: clamp(1.5rem, 2.2vw, 2.5rem);
@@ -501,7 +507,8 @@ img {
 #all-stege,
 #all-hakket,
 #all-spegepolse,
-#all-is {
+#all-is,
+.image-products {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-auto-rows: 600px;
@@ -642,19 +649,15 @@ img {
   font-weight: 400;
 }
 #cut-beskrivelse {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   max-width: 1300px;
   margin: 0 auto;
   margin-bottom: 50px;
 }
 #image-beskrivelse {
   margin-bottom: 10px;
-}
-.image-products {
-  margin: 0 auto;
-  flex-wrap: wrap;
-  /* justify-content: space-evenly; */
-  justify-content: center;
-  gap: 5vh;
 }
 
 .jersey_ko_om {
@@ -663,11 +666,6 @@ img {
 
 .cowlife_box {
   background-image: url(../img/cowlife.jpg);
-}
-
-.image-products article {
-  margin: 0 auto;
-  width: 24%;
 }
 
 .bold {
@@ -688,73 +686,83 @@ img {
 }
 
 /* -------- Vores værdier på Om Gården -------- */
-.vores-vaerdier {
-  margin: 25vh 0;
-}
-
-.vores-vaerdier h2 {
+.vores-vaerdier-h2 {
   font-size: clamp(1.5rem, 2.2vw, 2.5rem);
   font-family: var(--font-family-header);
 }
 
-.vores-vaerdier article {
-  margin: 1vh auto;
-}
-
-/*
-.fa-hands,
-.fa-handshake,
-.fa-map-marked-alt {
-  padding: 25px;
-  margin: auto;
-  border: 1px solid transparent;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.fa-hands:hover {
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
-}
-*/
-
-.alle-vaerdier {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.vaerdi {
+.vores-vaerdier {
+  padding: 0 15%;
+  margin: 15% 0;
   display: flex;
   flex-direction: column;
-  width: 33%;
+  justify-content: center;
+}
+
+.focuspoint {
   align-items: center;
+  text-align: center;
+  padding: 3vh 1.5rem 7vh 1.5rem;
 }
 
-.vaerdi i {
-  border: none;
-  background-color: transparent;
+.focus-color {
+  color: #a5c6f9;
+  -webkit-text-stroke: 0.1px #a5c6f9;
+}
+
+.blue-focuspoint {
+  border: 1px solid #a5c6f9;
+}
+
+.focuspoints {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(253, 253, 253);
+  margin: 7.5vh 10vw 13vh 10vw;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 25%) 0px 4px 4px;
+}
+
+.focuspoints {
+  flex-direction: row;
+  margin: 0 auto 10vh auto;
+  max-width: 1024px;
+}
+
+.focuspoint {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+}
+
+.focuspoint p {
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+@media only screen and (min-width: 1040px) {
+  .focuspoint:nth-child(1),
+  .focuspoint:nth-child(2) {
+    border-bottom: 0;
+    border-right: 1px solid #e4e4e4;
+  }
+}
+
+.focuspoint {
+  align-items: center;
+  text-align: center;
+}
+
+.focuspoint-icon {
+  height: 55px;
+  margin: 1vh;
+}
+
+.focuspoint-top-h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
   color: var(--orange);
-}
-
-/* #vaerdi-1 {
-  display: none;
-}
-
-#vaerdi-2 {
-  display: none;
-}
-
-#vaerdi-3 {
-  display: none;
-} */
-
-#vaerdi-1 p,
-#vaerdi-2 p,
-#vaerdi-3 p {
 }
 
 /* Wrapper */
@@ -809,10 +817,12 @@ img {
 
 .about-us-text.about_gaarden {
   margin-right: 50px;
+  font-size: 0.95rem;
 }
 
 .about-us-text.about_visitnordfyn {
   margin-left: 50px;
+  font-size: 0.95rem;
 }
 
 .img_box {
@@ -1017,12 +1027,6 @@ footer a {
     min-width: 310px;
     max-width: 90%;
   }
-
-  /* Om gården */
-
-  .vores-vaerdier {
-    margin: 15vh 0;
-  }
 }
 
 .split {
@@ -1032,6 +1036,7 @@ footer a {
 /****************************************************** Produkt-side ******************************************************/
 #nyheder article {
   padding: 16px;
+  max-width: 800px;
 }
 
 .center-content {
@@ -1272,17 +1277,6 @@ footer a {
 
 /* -------- Produkter mobil-navigation -------- */
 @media screen and (max-width: 900px) {
-  /* Jersey ko mobile */
-  .image-products article {
-    margin: 0 auto;
-    width: 50%;
-  }
-
-  .image-products {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
   /* Produkt */
   .bund-box-højre {
     width: 100%;
@@ -1411,15 +1405,6 @@ footer a {
     font-style: italic;
   }
 
-  .alle-vaerdier {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .vaerdi {
-    margin-bottom: 3rem;
-  }
-
   /* -------- Specifik produkt side -------- */
   .product-card {
     flex-direction: column;
@@ -1506,15 +1491,10 @@ footer a {
   }
 
   /* Produktside */
-
   .produkt-kort {
     flex-direction: column;
     align-items: center;
   }
-
-  /* .kort {
-    max-width: 300px;
-  } */
 
   .kategori {
     padding-left: 0;
@@ -1533,6 +1513,29 @@ footer a {
     border-radius: 50%;
     font-size: 16px;
     cursor: pointer;
+  }
+
+  .focuspoints {
+    flex-direction: column;
+    margin: 0.5vh 5% 13vh 5%;
+    max-width: 500px;
+  }
+
+  .focuspoint:nth-child(1),
+  .focuspoint:nth-child(2) {
+    border-bottom: 1px solid #e4e4e4;
+    border-right: 0;
+  }
+
+  .focuspoint {
+    width: 100%;
+  }
+
+  .vores-vaerdier {
+    padding: 0;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 15vh;
   }
 }
 

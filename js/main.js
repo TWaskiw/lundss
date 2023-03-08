@@ -95,8 +95,6 @@ onSnapshot(_productsRef, (snapshot) => {
   filterProdukter(_products);
   filterCuts(_products);
   appendProdukterForside(_products);
-
-  // showLoader(false);
 });
 
 onSnapshot(_nyhedRef, (snapshot) => {
@@ -107,7 +105,6 @@ onSnapshot(_nyhedRef, (snapshot) => {
     return nyhed;
   });
   appendNyhed(_nyhed);
-  // showLoader(false);
 });
 
 // Sigurd
@@ -460,18 +457,18 @@ document.querySelector("#chuck").addEventListener("click", function () {
   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
   <br><h3>Fra denne del kan vi tilbyde</h3>
   `;
-  document.querySelector(`#chuck-product`).style.display = "flex";
+  document.querySelector(`#chuck-product`).style.display = "grid";
 });
 
 // Alexander
 document.querySelector("#brisket").addEventListener("click", function () {
   clearArray();
   document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Briskett</h1>
+  <h1>Brisket</h1>
   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
   <br><h3>Fra denne del kan vi tilbyde</h3>
   `;
-  document.querySelector(`#brisket-product`).style.display = "flex";
+  document.querySelector(`#brisket-product`).style.display = "grid";
 });
 
 // Alexander
@@ -482,7 +479,7 @@ document.querySelector("#plate").addEventListener("click", function () {
   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
   <br><h3>Fra denne del kan vi tilbyde</h3>
   `;
-  document.querySelector(`#plate-product`).style.display = "flex";
+  document.querySelector(`#plate-product`).style.display = "grid";
 });
 
 // Alexander
@@ -493,7 +490,7 @@ document.querySelector("#rib").addEventListener("click", function () {
   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
   <br><h3>Fra denne del kan vi tilbyde</h3>
   `;
-  document.querySelector(`#rib-product`).style.display = "flex";
+  document.querySelector(`#rib-product`).style.display = "grid";
 });
 
 // Alexander
@@ -513,7 +510,7 @@ document.querySelector("#flank").addEventListener("click", function () {
   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
   <br><h3>Fra denne del kan vi tilbyde</h3>
   `;
-  document.querySelector(`#flank-product`).style.display = "flex";
+  document.querySelector(`#flank-product`).style.display = "grid";
 });
 
 // Alexander
@@ -523,7 +520,7 @@ document.querySelector("#top-sirloin").addEventListener("click", function () {
   <h1>Top Sirloin</h1>
   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
   `;
-  document.querySelector(`#topsirloin-product`).style.display = "flex";
+  document.querySelector(`#topsirloin-product`).style.display = "grid";
 });
 
 // Alexander
@@ -545,7 +542,7 @@ document.querySelector("#round").addEventListener("click", function () {
   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
   <br><h3>Fra denne del kan vi tilbyde</h3>
   `;
-  document.querySelector(`#round-product`).style.display = "flex";
+  document.querySelector(`#round-product`).style.display = "grid";
 });
 
 // Alexander
@@ -563,7 +560,7 @@ function clearArray() {
 
 // Thomas
 // Luk alle værdier
-/* function resetVaerdier() {
+function resetVaerdier() {
   document.getElementById("vaerdi-1").style.display = "none";
   document.getElementById("vaerdi-2").style.display = "none";
   document.getElementById("vaerdi-3").style.display = "none";
@@ -574,7 +571,7 @@ function clearArray() {
 function vaerdier(value) {
   resetVaerdier();
   document.getElementById(value).style.display = "block";
-} */
+}
 
 var nav = $(".nav-container");
 var navMobile = $(".mobile-nav-container");
@@ -618,8 +615,8 @@ window.onscroll = function () {
 
 function scrollFunction() {
   if (
-    document.body.scrollTop > 200 ||
-    document.documentElement.scrollTop > 200
+    (document.body.scrollTop > 200 && screen.width < 1025) ||
+    (document.documentElement.scrollTop > 200 && screen.width < 1025)
   ) {
     mybutton.style.display = "block";
   } else {

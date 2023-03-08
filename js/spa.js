@@ -42,12 +42,12 @@ function scrollToTop() {
 // set default page or given page by the hash url
 // function is called 'onhashchange'
 function pageChange() {
-  let page = "home";
+  let page = "hjem";
   if (location.hash) {
     page = location.hash.slice(1);
   }
   showPage(page);
-  if (location.hash !== "#products") {
+  if (location.hash !== "#produkter") {
     scrollToTop();
   }
 }
