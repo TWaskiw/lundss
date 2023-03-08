@@ -1456,21 +1456,12 @@ footer a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 75%;
     margin: auto;
-  }
-
-  .info-kort-img {
-    position: relative;
-    left: 0;
-    top: 0;
   }
 
   .info-kort-text {
     margin-top: 35px;
     width: 70%;
-    /* min-width: 300px;
-    max-width: 400px; */
     height: auto;
     min-width: auto;
   }
