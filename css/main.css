@@ -685,7 +685,7 @@ img {
 
 /* -------- Vores værdier på Om Gården -------- */
 .vores-vaerdier-h2 {
-  font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+  font-size: 2rem;
   font-family: var(--font-family-header);
 }
 
