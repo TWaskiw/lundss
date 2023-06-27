@@ -1211,7 +1211,7 @@ footer a {
 }
 
 .mobile-nav-container ul li {
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .mobile-nav-container ul li.active a {
@@ -1384,7 +1384,7 @@ footer a {
     list-style-type: none;
     font-size: 16px;
     color: black;
-    padding: 20px 0;
+    padding: 15px 0;
   }
 
   .mobile-produkt-nav {
@@ -1396,7 +1396,7 @@ footer a {
   .mobile-produkt-nav h2 {
     font-size: 32px;
     text-align: start;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
     font-weight: bold;
   }
 
