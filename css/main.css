@@ -349,6 +349,13 @@ img {
   gap: 40px;
 }
 
+.is-information {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 /* ---------- Lagerstatus på produktside ---------- */
 .dashboard_lagerstatus {
   display: flex;
@@ -359,6 +366,19 @@ img {
 .dashboard_lagerstatus-specifik {
   display: flex;
   align-items: center;
+}
+
+.dashboard_lagerstatus-specifik-is {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  margin-top: 5px;
+}
+
+.specific-status {
+  border-top: 1px solid #e4e4e4;
+  padding-top: 25px;
+  margin-top: 25px;
 }
 
 .greendot,
@@ -1258,6 +1278,13 @@ footer a {
   margin: 40px 0;
 }
 
+.produkt-information-is {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
 .specifik-info,
 .dashboard_lagerstatus-specifik {
   flex: 0 50%;
@@ -1326,13 +1353,13 @@ footer a {
   }
 
   .mobile-nav-container ul {
-    width: 100%;
     display: flex;
     flex-direction: row;
     text-decoration: none;
     list-style-type: none;
     padding-inline-start: 0;
     gap: 40px;
+    padding-right: 50px;
   }
 
   .mobile-nav-container::-webkit-scrollbar {

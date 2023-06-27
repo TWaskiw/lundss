@@ -31,7 +31,7 @@ let _nyhed = [];
 // Alle
 // impoterer funktioner til modulet
 window.showProduct = (id) => showProduct(id);
-window.showVin = (id) => showVin(id);
+window.showIs = (id) => showIs(id);
 window.goBack = (id) => goBack(id);
 window.appendProdukterForside = (products) => appendProdukterForside(products);
 window.resetVaerdier = () => resetVaerdier();
@@ -157,16 +157,21 @@ function filterProdukter(products) {
     ) {
       spegePolse.push(product);
     } else if (product.category === "Is" && product.visProdukt === "Ja") {
-      is.push(product);
+      const found = is.find((currentIs) => product.name === currentIs.name);
+      if (!found) {
+        is.push(product);
+      }
     } /* else if (product.category === "Vin") {
       vin.push(product); */
   }
+
+  is = is.filter((product) => product.name !== "Is");
 
   appendProdukter(bofferSteaks, "all-bofferSteaks");
   appendProdukter(stege, "all-stege");
   appendProdukter(hakketOkse, "all-hakket");
   appendProdukter(spegePolse, "all-spegepolse");
-  appendProdukter(is, "all-is");
+  appendIs(is, "all-is");
   /*
   appendVin(vin, "all-vin"); */
 }
@@ -200,11 +205,11 @@ function appendProdukter(products, containerId) {
   document.querySelector(`#${containerId}`).innerHTML = htmlTemplate;
 }
 
-function appendVin(products, containerId) {
+function appendIs(products, containerId) {
   let htmlTemplate = "";
   for (let product of products) {
     htmlTemplate += /*html*/ `
-    <article class="kort" onclick="showVin('${product.id}')">
+    <article class="kort" onclick="showIs('${product.id}')">
     <div class="kort-img">
       <img src="${product.img}">
       </div>
@@ -212,11 +217,7 @@ function appendVin(products, containerId) {
         <h3>${product.name}</h3>
         <p class="kgpris">${product.kgprice}</p>
         <p class="vaegt">${product.weight}</p>
-        <p class="pris">${product.price} kr,-</p>
         <div class="justify-content">
-        <div class="dashboard_lagerstatus">${optionalList(product)} ${
-      product.stock
-    }</div>
     <button><img src="./img/pil.png"></button>
         </div>
         </div>
@@ -322,8 +323,26 @@ function showProduct(id) {
   navigateTo("specific-product");
 }
 
-function showVin(id) {
+function showIs(id) {
   const product = _products.find((product) => product.id == id);
+  const products = _products.filter(
+    (currentProduct) => currentProduct.name == product.name
+  );
+
+  const test = products
+    .sort((a, b) => a.price - b.price)
+    .map((product) => {
+      return /*html*/ `
+      <div class="specific-status"><div class="is-information">${
+        product.weight
+      } <p>${product.price} Kr,-</p></div>
+                <div class="dashboard_lagerstatus dashboard_lagerstatus-specifik-is">${optionalList(
+                  product
+                )} ${product.stock}
+    </div></div>`;
+    })
+    .join("");
+
   document.querySelector("#chosen-product").innerHTML = /*html*/ `
   <article class="product-card ${product.name}-color">
   <div onclick="goBack()" class="produkt-navigation mobile-produkt">
@@ -343,23 +362,8 @@ function showVin(id) {
           <h3>${product.name}</h3>
           <p class="description">${product.description}</p>
           </div>
-<div class="produkt-information">
-<div class="specifik-info">
-<p class="specifik-info-top">Årstal</p>
-          <p class="specifik-info-bottom">${product.kgprice}</p>
-          </div>
-          <div class="specifik-info">
-          <p class="specifik-info-top">Fra</p>
-          <p class="specifik-info-bottom">${product.weight}</p>
-          </div>
-          <div class="specifik-info">
-          <p class="specifik-info-top">Alkoholprocent</p>
-          <p class="specifik-info-bottom">${product.price}%</p>
-          </div>
-          <div class="dashboard_lagerstatus-specifik specifik-info-bottom">${optionalList(
-            product
-          )} ${product.stock}
-    </div>
+<div class="produkt-information-is">
+${test}
     </div>
           </div>
         </div>
