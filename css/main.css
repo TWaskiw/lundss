@@ -1210,6 +1210,10 @@ footer a {
   border-radius: 5px;
 }
 
+.mobile-nav-container ul li {
+  padding: 20px 0;
+}
+
 .mobile-nav-container ul li.active a {
   color: #e28f47;
 }
@@ -1386,7 +1390,7 @@ footer a {
   .mobile-produkt-nav {
     position: sticky;
     top: 0;
-    padding: 5.5vh 0 2.5vh 0;
+    padding: 2.5vh 0 2.5vh 0;
   }
 
   .mobile-produkt-nav h2 {
