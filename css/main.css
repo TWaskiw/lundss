@@ -523,6 +523,14 @@ img {
   margin-top: auto;
 }
 
+.justify-content-is {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-top: auto;
+}
+
 #all-bofferSteaks,
 #all-stege,
 #all-hakket,
@@ -1269,6 +1277,7 @@ footer a {
   max-width: 400px;
   line-height: 1.5;
   margin-top: 8px;
+  text-align: start;
 }
 
 .produkt-information {
@@ -1573,9 +1582,9 @@ footer a {
     max-width: 800px;
   }
 
-  #all-is {
+  /* #all-is {
     padding-right: 40px;
-  }
+  } */
 
   .produkt-img img {
     min-height: 100%;

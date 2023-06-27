@@ -215,9 +215,8 @@ function appendIs(products, containerId) {
       </div>
       <div class="kort-indhold">
         <h3>${product.name}</h3>
-        <p class="kgpris">${product.kgprice}</p>
-        <p class="vaegt">${product.weight}</p>
-        <div class="justify-content">
+        <p class="description">${product.description}</p>
+        <div class="justify-content-is">
     <button><img src="./img/pil.png"></button>
         </div>
         </div>
@@ -335,7 +334,7 @@ function showIs(id) {
       return /*html*/ `
       <div class="specific-status"><div class="is-information">${
         product.weight
-      } <p>${product.price} Kr,-</p></div>
+      } <p>${product.price} kr,-</p></div>
                 <div class="dashboard_lagerstatus dashboard_lagerstatus-specifik-is">${optionalList(
                   product
                 )} ${product.stock}
