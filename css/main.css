@@ -834,7 +834,7 @@ img {
   margin: auto;
   grid-template-columns: 1fr 1fr;
   line-height: 1.5;
-  padding: 0 5%;
+  padding: 0 15%;
 }
 
 .grid-container > article {
