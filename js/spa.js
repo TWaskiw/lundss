@@ -8,8 +8,19 @@ function hideAllPages() {
   }
 }
 
+function showHeader() {
+  let headers = document.querySelectorAll("header");
+  for (let header of headers) {
+    header.style.display = "block";
+  }
+}
+
 // show page or tab
 function showPage(pageId) {
+  console.log(pageId);
+  if (pageId !== "adgang") {
+    showHeader();
+  }
   hideAllPages();
   document.querySelector(`#${pageId}`).style.display = "block";
   setActiveTab(pageId);
@@ -42,7 +53,7 @@ function scrollToTop() {
 // set default page or given page by the hash url
 // function is called 'onhashchange'
 function pageChange() {
-  let page = "hjem";
+  let page = "adgang";
   if (location.hash) {
     page = location.hash.slice(1);
   }
