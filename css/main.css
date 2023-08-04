@@ -42,10 +42,6 @@ img {
   height: auto;
 }
 
-header {
-  display: none;
-}
-
 /* ---------- Navigation ---------- */
 .tabbar {
   display: flex;

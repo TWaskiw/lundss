@@ -93,7 +93,7 @@ onSnapshot(_productsRef, (snapshot) => {
   });
 
   filterProdukter(_products);
-  filterCuts(_products);
+  // filterCuts(_products);
   appendProdukterForside(_products);
 });
 
@@ -376,190 +376,190 @@ function goBack() {
   window.history.back();
 }
 
-// Alexander
-// Image mapping
-//Her genbruger vi vores filtrerings metode, her tager vi fat i Udskæringer
-function filterCuts(products) {
-  let chuck = [];
-  let brisket = [];
-  let plate = [];
-  let rib = [];
-  let flank = [];
-  let topsirloin = [];
-  let round = [];
+// // Alexander
+// // Image mapping
+// //Her genbruger vi vores filtrerings metode, her tager vi fat i Udskæringer
+// function filterCuts(products) {
+//   let chuck = [];
+//   let brisket = [];
+//   let plate = [];
+//   let rib = [];
+//   let flank = [];
+//   let topsirloin = [];
+//   let round = [];
 
-  for (const product of products) {
-    if (product.cut === "Højreb") {
-      rib.push(product);
-    } else if (product.cut === "Bryst") {
-      plate.push(product);
-    } else if (product.cut === "Bov") {
-      brisket.push(product);
-    } else if (product.cut === "Skank") {
-      flank.push(product);
-    } else if (product.cut === "Tyksteg") {
-      round.push(product);
-    } else if (product.cut === "Tyndsteg") {
-      topsirloin.push(product);
-    } else if (product.cut === "Tykkam") {
-      chuck.push(product);
-    }
-  }
-  appendCuts(rib, "rib-product");
-  appendCuts(brisket, "brisket-product");
-  appendCuts(plate, "plate-product");
-  appendCuts(flank, "flank-product");
-  appendCuts(chuck, "chuck-product");
-  appendCuts(topsirloin, "topsirloin-product");
-  appendCuts(round, "round-product");
-}
+//   for (const product of products) {
+//     if (product.cut === "Højreb") {
+//       rib.push(product);
+//     } else if (product.cut === "Bryst") {
+//       plate.push(product);
+//     } else if (product.cut === "Bov") {
+//       brisket.push(product);
+//     } else if (product.cut === "Skank") {
+//       flank.push(product);
+//     } else if (product.cut === "Tyksteg") {
+//       round.push(product);
+//     } else if (product.cut === "Tyndsteg") {
+//       topsirloin.push(product);
+//     } else if (product.cut === "Tykkam") {
+//       chuck.push(product);
+//     }
+//   }
+//   appendCuts(rib, "rib-product");
+//   appendCuts(brisket, "brisket-product");
+//   appendCuts(plate, "plate-product");
+//   appendCuts(flank, "flank-product");
+//   appendCuts(chuck, "chuck-product");
+//   appendCuts(topsirloin, "topsirloin-product");
+//   appendCuts(round, "round-product");
+// }
 
-// Alexander
-//Appender til jerseyko udskæringen
-function appendCuts(products, containerId) {
-  let htmlTemplate = "";
-  for (let product of products) {
-    htmlTemplate += /*html*/ `
-      <article class="kort" onclick="showProduct('${product.id}')">
-      <div class="kort-img-jersey kort-halv">
-        <img src="${product.img}">
-        </div>
-        <div class="kort-indhold kort-halv">
-          <h3>${product.name}</h3>
-                <p style="text-align:left;">${product.description}</p>
-          <div class="justify-content">
-          <div class="dashboard_lagerstatus">${optionalList(product)} ${
-      product.stock
-    }</div>
-          <button><img src="./img/pil.png"></button>
-        </div>
-      </article>
-      `;
-  }
-  document.querySelector(`#${containerId}`).innerHTML = htmlTemplate;
-  document.querySelector(`#${containerId}`).style.display = "none";
-}
+// // Alexander
+// //Appender til jerseyko udskæringen
+// function appendCuts(products, containerId) {
+//   let htmlTemplate = "";
+//   for (let product of products) {
+//     htmlTemplate += /*html*/ `
+//       <article class="kort" onclick="showProduct('${product.id}')">
+//       <div class="kort-img-jersey kort-halv">
+//         <img src="${product.img}">
+//         </div>
+//         <div class="kort-indhold kort-halv">
+//           <h3>${product.name}</h3>
+//                 <p style="text-align:left;">${product.description}</p>
+//           <div class="justify-content">
+//           <div class="dashboard_lagerstatus">${optionalList(product)} ${
+//       product.stock
+//     }</div>
+//           <button><img src="./img/pil.png"></button>
+//         </div>
+//       </article>
+//       `;
+//   }
+//   document.querySelector(`#${containerId}`).innerHTML = htmlTemplate;
+//   document.querySelector(`#${containerId}`).style.display = "none";
+// }
 
-// Alexander
-// Hver funktion tager fat i en del af image mapping, hvor de appender de passende informationer
-document.querySelector("#neck").addEventListener("click", function () {
-  clearArray();
-  let html = "";
-  html += `
-  <h1>Neck</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  `;
-  document.querySelector("#image-beskrivelse").innerHTML = html;
-});
+// // Alexander
+// // Hver funktion tager fat i en del af image mapping, hvor de appender de passende informationer
+// document.querySelector("#neck").addEventListener("click", function () {
+//   clearArray();
+//   let html = "";
+//   html += `
+//   <h1>Neck</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   `;
+//   document.querySelector("#image-beskrivelse").innerHTML = html;
+// });
 
-// Alexander
-document.querySelector("#chuck").addEventListener("click", function () {
-  clearArray();
-  document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Chuck</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  <br><h3>Fra denne del kan vi tilbyde</h3>
-  `;
-  document.querySelector(`#chuck-product`).style.display = "grid";
-});
+// // Alexander
+// document.querySelector("#chuck").addEventListener("click", function () {
+//   clearArray();
+//   document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Chuck</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   <br><h3>Fra denne del kan vi tilbyde</h3>
+//   `;
+//   document.querySelector(`#chuck-product`).style.display = "grid";
+// });
 
-// Alexander
-document.querySelector("#brisket").addEventListener("click", function () {
-  clearArray();
-  document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Brisket</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  <br><h3>Fra denne del kan vi tilbyde</h3>
-  `;
-  document.querySelector(`#brisket-product`).style.display = "grid";
-});
+// // Alexander
+// document.querySelector("#brisket").addEventListener("click", function () {
+//   clearArray();
+//   document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Brisket</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   <br><h3>Fra denne del kan vi tilbyde</h3>
+//   `;
+//   document.querySelector(`#brisket-product`).style.display = "grid";
+// });
 
-// Alexander
-document.querySelector("#plate").addEventListener("click", function () {
-  clearArray();
-  document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Plate</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  <br><h3>Fra denne del kan vi tilbyde</h3>
-  `;
-  document.querySelector(`#plate-product`).style.display = "grid";
-});
+// // Alexander
+// document.querySelector("#plate").addEventListener("click", function () {
+//   clearArray();
+//   document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Plate</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   <br><h3>Fra denne del kan vi tilbyde</h3>
+//   `;
+//   document.querySelector(`#plate-product`).style.display = "grid";
+// });
 
-// Alexander
-document.querySelector("#rib").addEventListener("click", function () {
-  clearArray();
-  document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Rib</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  <br><h3>Fra denne del kan vi tilbyde</h3>
-  `;
-  document.querySelector(`#rib-product`).style.display = "grid";
-});
+// // Alexander
+// document.querySelector("#rib").addEventListener("click", function () {
+//   clearArray();
+//   document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Rib</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   <br><h3>Fra denne del kan vi tilbyde</h3>
+//   `;
+//   document.querySelector(`#rib-product`).style.display = "grid";
+// });
 
-// Alexander
-document.querySelector("#shortloin").addEventListener("click", function () {
-  clearArray();
-  document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Shortloin</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  `;
-});
+// // Alexander
+// document.querySelector("#shortloin").addEventListener("click", function () {
+//   clearArray();
+//   document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Shortloin</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   `;
+// });
 
-// Alexander
-document.querySelector("#flank").addEventListener("click", function () {
-  clearArray();
-  document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Flank</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  <br><h3>Fra denne del kan vi tilbyde</h3>
-  `;
-  document.querySelector(`#flank-product`).style.display = "grid";
-});
+// // Alexander
+// document.querySelector("#flank").addEventListener("click", function () {
+//   clearArray();
+//   document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Flank</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   <br><h3>Fra denne del kan vi tilbyde</h3>
+//   `;
+//   document.querySelector(`#flank-product`).style.display = "grid";
+// });
 
-// Alexander
-document.querySelector("#top-sirloin").addEventListener("click", function () {
-  clearArray();
-  document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Top Sirloin</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  `;
-  document.querySelector(`#topsirloin-product`).style.display = "grid";
-});
+// // Alexander
+// document.querySelector("#top-sirloin").addEventListener("click", function () {
+//   clearArray();
+//   document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Top Sirloin</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   `;
+//   document.querySelector(`#topsirloin-product`).style.display = "grid";
+// });
 
-// Alexander
-document
-  .querySelector("#bottom-sirloin")
-  .addEventListener("click", function () {
-    clearArray();
-    document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Bottom Sirloin</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  `;
-  });
+// // Alexander
+// document
+//   .querySelector("#bottom-sirloin")
+//   .addEventListener("click", function () {
+//     clearArray();
+//     document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Bottom Sirloin</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   `;
+//   });
 
-// Alexander
-document.querySelector("#round").addEventListener("click", function () {
-  clearArray();
-  document.querySelector("#image-beskrivelse").innerHTML = `
-  <h1>Round</h1>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-  <br><h3>Fra denne del kan vi tilbyde</h3>
-  `;
-  document.querySelector(`#round-product`).style.display = "grid";
-});
+// // Alexander
+// document.querySelector("#round").addEventListener("click", function () {
+//   clearArray();
+//   document.querySelector("#image-beskrivelse").innerHTML = `
+//   <h1>Round</h1>
+//   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+//   <br><h3>Fra denne del kan vi tilbyde</h3>
+//   `;
+//   document.querySelector(`#round-product`).style.display = "grid";
+// });
 
-// Alexander
-// Sætter alle appendede produkter på jersey side til display none, som en nulstilling af funktionen
-function clearArray() {
-  document.querySelector(`#chuck-product`).style.display = "none";
-  document.querySelector(`#topsirloin-product`).style.display = "none";
-  document.querySelector(`#chuck-product`).style.display = "none";
-  document.querySelector(`#rib-product`).style.display = "none";
-  document.querySelector(`#plate-product`).style.display = "none";
-  document.querySelector(`#brisket-product`).style.display = "none";
-  document.querySelector(`#round-product`).style.display = "none";
-  document.querySelector(`#flank-product`).style.display = "none";
-}
+// // Alexander
+// // Sætter alle appendede produkter på jersey side til display none, som en nulstilling af funktionen
+// function clearArray() {
+//   document.querySelector(`#chuck-product`).style.display = "none";
+//   document.querySelector(`#topsirloin-product`).style.display = "none";
+//   document.querySelector(`#chuck-product`).style.display = "none";
+//   document.querySelector(`#rib-product`).style.display = "none";
+//   document.querySelector(`#plate-product`).style.display = "none";
+//   document.querySelector(`#brisket-product`).style.display = "none";
+//   document.querySelector(`#round-product`).style.display = "none";
+//   document.querySelector(`#flank-product`).style.display = "none";
+// }
 
 // Thomas
 // Luk alle værdier

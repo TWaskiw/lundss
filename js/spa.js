@@ -17,10 +17,6 @@ function showHeader() {
 
 // show page or tab
 function showPage(pageId) {
-  console.log(pageId);
-  if (pageId !== "adgang") {
-    showHeader();
-  }
   hideAllPages();
   document.querySelector(`#${pageId}`).style.display = "block";
   setActiveTab(pageId);
@@ -53,7 +49,7 @@ function scrollToTop() {
 // set default page or given page by the hash url
 // function is called 'onhashchange'
 function pageChange() {
-  let page = "adgang";
+  let page = "hjem";
   if (location.hash) {
     page = location.hash.slice(1);
   }
