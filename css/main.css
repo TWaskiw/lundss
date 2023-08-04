@@ -74,6 +74,10 @@ header {
   text-align: right;
 }
 
+#Logo-Burger {
+  display: flex;
+}
+
 .logo-nav {
   max-width: 20%;
 }
