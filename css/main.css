@@ -723,7 +723,7 @@ img {
 
 .vores-vaerdier {
   padding: 0 15%;
-  margin: 15% 0;
+  margin: 10% 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -739,6 +739,14 @@ img {
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 25%) 0px 4px 4px;
   padding: 3vh 1.5rem 3vh 1.5rem;
+  max-width: 500px;
+}
+
+.euSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .focus-color {
