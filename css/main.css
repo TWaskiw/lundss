@@ -739,7 +739,17 @@ img {
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 25%) 0px 4px 4px;
   padding: 3vh 1.5rem 3vh 1.5rem;
-  max-width: 500px;
+  max-width: 700px;
+}
+
+.stotteImg {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.stotteImg img {
+  max-width: 200px;
 }
 
 .euSection {
@@ -789,6 +799,20 @@ img {
   .focuspoint:nth-child(2) {
     border-bottom: 0;
     border-right: 1px solid #e4e4e4;
+  }
+}
+
+@media only screen and (max-width: 1040px) {
+  .stotteImg {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .stotteImg2 {
+    margin-top: 20px;
   }
 }
 
